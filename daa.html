@@ -238,14 +238,13 @@ public class Stack {
 <hr>
 <!-- .....3rd program........-->
 <br>
-  <!--        
 <div class="heading">
-  3. Write a program to find factorial of a number.
+  2a. Design a super class called Staff with details as Staffld, Name, Phone, Salary Extend this class by writing three subclasses namely Teaching (domain, publications), Technical (skills), and Contract (period). Write a Java program to read and display at least 3 staff objects of all three categories.
 </div>
 <div class="prog1">
  
   <textarea name="" id="" cols="90" rows="10">
-                          AREA Program, CODE, READONLY
+                 <!--         AREA Program, CODE, READONLY
  			ENTRY
 
 	 		LDR 	R0,LOOKUP 	            ; load the address of the lookup table
@@ -263,22 +262,23 @@ STORE		STR		R2,[R0,#4]		; store the fact value
 
 LOOKUP 	DCD 	0X40000000     ; Address of the memory where offset value is loaded.
 
-			END
+			END -->
 
   </textarea>
   
   
 </div>
 <div class="heading">
-  Conclusion:
-This program performs factorial of a number and the result is stored in memory location 0x40000000.
+  
 
 </div>
 <hr>
 <br>
-  <!--    4th program    
+  <!--    4th program    -->
 <div class="heading">
-  4. Write a program to add an array of 16 bit numbers and store the 32 bit result in internal RAM.
+ 3a. Write a Java program to read two integers a and b Compute a/b and print, when b is not zero. Raise an
+
+when b is equal to zero.
 </div>
 <div class="prog1">
  
@@ -313,8 +313,6 @@ RESULT DCD 0
 <div class="heading">
   
 
-Conclusion:
-This program performs addition of an array of 16 bit numbers and store the 32 bit result in internal RAM and the result is stored in memory location 0x40000000.
 
 
 
@@ -323,9 +321,9 @@ This program performs addition of an array of 16 bit numbers and store the 32 bi
 <hr>
 <br>
 
-  <!--    5th program    
+  <!--    5th program    -->
 <div class="heading">
-  5. Write a program to find the square of a number (1-10) using look-up table
+  3b. Write a Java program that implements a multi-thread application that has three threads. The first thread. generates a random integer for every 1 second; the second thread computes the square of the number and prints, the third thread will print the value of cube of the number.
 </div>
 <div class="prog1">
  
@@ -365,16 +363,16 @@ RESULT DCD 0
 <div class="heading">
   
 
-Conclusion:
-This program performs the function to find the square numbers and the result is stored in memory location 0x40000000.
+
 
 </div>
 <hr>
 <br>
-  <!--     6th program   
+  <!--     6th program   -->
 
 <div class="heading">
-  6. Write a program to find the smallest or largest  number in an array.
+  
+  4. Sort a given set of n integer elements using Quick Sort method and compute its time complexity. Run the program for values of n> 5000 and record the time taken to sort. Plot a graph of the time taken versus n on graph sheet. The elements can be read from a file or can be generated using random number generator Demonstrate using Java how the divide-and-conquer method works along with its time complexity analysis: worst case, average case and best case.
 </div>
 <div class="prog1">
  
@@ -423,16 +421,17 @@ RESULT DCD 0
 <div class="heading">
   
 
-Conclusion: this program performs finding the smallest or largest number in an array. and the result is stored in memory location 0x40000000.
+
 
 </div>
 <hr>
 <br>
 <div class="heading">
-    <!--  7th program      
+    <!--  7th program      -->
     
 <div class="heading">
-  7. Write a program to arrange series of 32 bits number in ascending or descending order. </div>
+5. Sort a given set of n integer elements using Merge Sort method and compute its time complexity. Run the for varied values of n > 5000, and record the time taken to sort. Plot a graph of the time taken versus n on graph sheet. The elements can be read from a file or can be generated using the random number generator Demonstrate using Java how the divide and-conquer method works along with its time complexity analysis. worst case, average case and best case.
+  </div>
   
 <div class="prog1">
  
@@ -471,15 +470,14 @@ LOOP2 		SUBS R5,R5,#1
   
 </div>
 <div class="heading">
-  Conclusion:
-This program performs the ascending or descending order of the number and the result is stored in memory location 0x40000000.
+  
 
 </div>
   <hr>
   <br>
-  <!--    8th program    
+  <!--    8th program    -->
   
-  8. write a program to count number of ones and zeroes in 2 consecutive memory location.
+  6. Implement in Java, the 0/1 Knapsack problem using (a) Dynamic Programming method (b)Greedy method.
 </div>
 <div class="prog1">
  
@@ -525,9 +523,13 @@ This program counts the number of ones and zeroes in 2 consecutive memory locati
 </div>
 <hr>
 <br>
-
+  <!--     program 9   -->
 <div class="heading">
-  Interface  a DAC  and generate triangular wave form
+ 7. From a given vertex in a weighted connected graph, find
+  
+  shortest paths to other vertices using Dijkstra's
+  
+  algorithm. Write the program in Java
 </div>
 <div class="prog1">
  
@@ -568,7 +570,112 @@ int main(void)
 OUTPUT: triangular waves
 
 </div>
-<hr>  -->
+<hr>
+<br>
+ <!--     program 10   -->
+<div class="heading">
+ 8. Find Minimum Cost Spanning Tree of a given undirected
+
+graph using
+
+7
+
+8
+
+(a) Kruskai's algorithm
+
+(b) Prim's algorithm. Implement the program in Java language.
+ </div>
+<div class="prog1">
+ 
+  <textarea name="" id="" cols="90" rows="10">
+    
+#include<LPC214x.H>
+int Init_DAC()
+{
+	PINSEL1=0x00080000;
+	DACR=0;
+}
+int Write_DAC(unsigned int dacval)
+{
+	DACR=dacval<<6;
+}
+
+
+int main(void)
+{
+	unsigned int i;
+	Init_DAC();
+	while(1)
+	{
+		for(i=0;i<1024;i++)
+		Write_DAC(i);
+		for(i=1023;i>0;i--)
+		Write_DAC(i);
+	}
+}
+      
+
+  </textarea>
+  
+  
+</div>
+<div class="heading">
+  
+OUTPUT: triangular waves
+
+</div>
+<hr>
+<br>
+ <!--     program 11   -->
+<div class="heading">
+ 9. Write Java programs to implement (a) All-Pairs Shortest Paths problem using   Floyd's
+ 
+ 
+ 
+ algorithm (b) Travelling Sales Person problem using Dynamic programming.
+</div>
+<div class="prog1">
+ 
+  <textarea name="" id="" cols="90" rows="10">
+    
+#include<LPC214x.H>
+int Init_DAC()
+{
+	PINSEL1=0x00080000;
+	DACR=0;
+}
+int Write_DAC(unsigned int dacval)
+{
+	DACR=dacval<<6;
+}
+
+
+int main(void)
+{
+	unsigned int i;
+	Init_DAC();
+	while(1)
+	{
+		for(i=0;i<1024;i++)
+		Write_DAC(i);
+		for(i=1023;i>0;i--)
+		Write_DAC(i);
+	}
+}
+      
+
+  </textarea>
+  
+  
+</div>
+<div class="heading">
+  
+OUTPUT: triangular waves
+
+</div>
+<hr>
+
 
 </body>
     
@@ -613,6 +720,9 @@ OUTPUT: triangular waves
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+       alert("page is under maintenance");
+    </script>
 </body>
  
 </footer>
