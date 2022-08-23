@@ -67,36 +67,79 @@
 </div>
 <br>
 <div class="heading">
-    1.  Write a program to multiply two 16 bit binary numbers..
+    1a. Create a Java Class called Student with the following
+
+details as variables within it.
+
+(i) USN 
+(ii) Name
+
+(iii) Branch (iv) Phone
+
+Write a Java Program to create n Student objects and print the USN, Name, Branch, and Phone of these objects with suitable headings.
   </div>
 <div class="prog1">
   
   <textarea name="" id="" cols="90" rows="10">
- 
-AREA Program, CODE, READONLY
- 			ENTRY
-			 
-			LDR 		R0, MEMORY 	; load Address of memory
-		 	LDRH 		R1, [R0]		; load First number
-			LDRH		R2, [R0,#2]		; load Second number
-			MUL 		R2, R1, R2 		; R0 = R1 x R0
-			STRH 		R2, [R0,#4] 		; Store the result
-			SWI 		&11 			; all done
+ import java.util.Scanner;
 
- 			
-MEMORY			DCD 		0x40000000 	; Address of First 16 bit number
+public class Student {
+    long USN;
+    String Name;
+    String Branch;
+    long Phone;
 
- 			
- 			END	
+    public Student(long usn, String name, String br, long ph){
+        this.USN = usn;
+        this.Name = name;
+        this.Branch = br;
+        this.Phone = ph;
+    }
 
+    void display(){
+        System.out.println(USN + "\t" + Name + "\t" + Branch + "\t" + Phone );
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Enter the number of students");
+        int n = scan.nextInt();
+
+        Student[] students = new Student[n];
+
+        for (int i = 0; i< n; i++){
+            System.out.println("Enter the details of student" + (i+1));
+
+            System.out.println("Enter the USN");
+            long usn = scan.nextLong();
+
+            System.out.println("Enter the name of the student");
+            String name = scan.next();
+
+            System.out.println("Enter the name of the branch");
+            String branch = scan.next();
+
+            System.out.println("Enter the phone number");
+            long phone = scan.nextLong();
+
+            students[i] = new Student(usn, name , branch, phone);
+        }
+
+        System.out.println("USN" + "\t" + "Name" + "\t" + "Branch"  +"\t" +"Phone");
+        for(int i = 0; i<n; i++){
+            students[i].display();
+        }
+    }
+}
   
   </textarea>
   
   
 </div>
 <div class="heading">
-    Conclusion:
-This program performs a multiplication of two 16 bit binary numbers and the result is stored in memory location 0x40000000
+      <!--     output   -->
 
   </div>
   <hr>
@@ -104,37 +147,92 @@ This program performs a multiplication of two 16 bit binary numbers and the resu
 <!-- program 2-->
 <br>
 <div class="heading">
-  2. Write a program to find the sum of first 10 integer numbers.
+ 1b. Write a Java Program to implement the Stack using
+
+arrays. Write Push(), Pop) and Display() methods to
+
+demonstrate its working.
 </div>
 <div class="prog1">
  
   <textarea name="" id="" cols="90" rows="10">
-  AREA SQUARE,CODE,READONLY
-ENTRY
-	  MOV R0,#1
-	  MOV R1,#10
-	  MOV R2,#0
-LOOP  ADD R2,R0,R2
-      ADD R0,R0,#1
-	  ADD R1,R1,#-1
-	  CMP R1,#0
-	  BNE LOOP
-	  LDR R3,=RESULT
-	  STR R2,[R3]
-STOP  B STOP
+package com.example.oneb;
 
-	  AREA DATA1,DATA,READWRITE
-RESULT DCD 0
-      ALIGN
-	  END
+import java.util.Scanner;
 
+public class Stack {
+    private static final int max_size = 5;
+
+    int[] arr = new int[max_size];
+    int top = -1;
+
+    public void push(int ele){
+        if(top< max_size-1){
+            System.out.println("the element added is "+ele);
+            top ++;
+            arr[top] = ele;
+        }else{
+            System.out.println("Error: StackOverflow");
+        }
+    }
+
+    public void pop(){
+        if(top>= 0){
+            System.out.println("the element poped is "+arr[top]);
+            top --;
+        }else{
+            System.out.println("Error: Stack underflow");
+        }
+    }
+
+    public void display_stack_contents(){
+        if(top>=0){
+            for(int i =0; i<=top; i++){
+                System.out.println(arr[i]+ " ");
+            }
+        }else{
+            System.out.println("stack is empty");
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+        Scanner scan = new Scanner(System.in);
+
+        int elem;
+        boolean whileLoop = true;
+
+        do {
+            System.out.println("Enter your choice: \n 1.push \n 2.pop \n 3.dispaly \n 4.exit \n");
+            int choice = scan.nextInt();
+
+            switch (choice){
+                case 1:
+                    System.out.println("Enter the element to be inserted \n");
+                    elem = scan.nextInt();
+                    stack.push(elem);
+                    break;
+                case 2:
+                    stack.pop();
+                    break;
+                case 3:
+                    stack.display_stack_contents();
+                    break;
+                case 4:
+                    whileLoop = false;
+                    break;
+                default:
+                    System.out.println("invalid input");
+            }
+        }while(whileLoop);
+    }
+}
   </textarea>
   
   
 </div>
 <div class="heading">
-  Conclusion:
-This program performs the sum of first 10 integer numbers and the result is stored in memory location 0x40000000.
+    <!--   output     -->
 
 </div>
 <hr>
