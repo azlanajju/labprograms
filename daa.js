@@ -17,3 +17,12 @@ var currentScrollPos = window.pageYOffset;
   }
   prevScrollpos = currentScrollPos;
 }
+
+function onn() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function offf() {
+  document.getElementById("overlay").style.display = "none";
+}
+
