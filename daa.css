@@ -34,8 +34,8 @@ body {
 
 .loader {
   position: fixed;
-  top:50vh;
-  left:50%;
+  top:0;
+  left:40%;
   border: 12px solid white;
   border-radius: 50%;
   border-top: 12px solid grey;
