@@ -463,57 +463,72 @@ System.out.println("division by zero error");
  
   <textarea name="" id="" cols="90" rows="10">
    
-   package multithread; 
-import java.util.Scanner;
+  package MultiThread; import java.util.Scanner;
 
-
-public class Multithread {
- public static int num; public static int state=0;
-
-public static void main(String[] args) {
- new Thread(new Runnable(){
-@Override
-public void run(){ 
-int i=0;
-System.out.println("Enter n");
- Scanner s=new Scanner(System.in); 
-int n=s.nextInt();
-
-while(i<n)
+class Cube implements Runnable
 {
-num =(int) (Math.random() * 100);
- System.out.println("\nNumber :"+num);
- i++;
-state = 1; try
+public int x; public Cube(int x)
 {
-Thread.sleep(1000);
+this.x = x;
 }
-catch (InterruptedException e){ 
- System.out.println("error"+e);
+@Override public void run()
+{
+System.out.println("Cube : "+ x*x*x);
 }
 }
-}
-}).start();
 
-new Thread(new Runnable(){ @Override
-public void run(){ while(true)
+
+class Square implements Runnable
 {
-while(state!= 1);
-System.out.println("square :"+(num* num)); state=2;
+public int x;
+public Square(int x)
+{
+this.x = x;
 }
+@Override public void run()
+{
+System.out.println("Square : "+ x*x);
  
 }
-}
-).start();
 
-new Thread(new Runnable(){ @Override
-public void run(){ while(true)
+}
+class FirstThreadIsRandom extends Thread
 {
-while(state!= 2);
-System.out.println("cube :"+(num* num*num)); state=0;
+public void run()
+{
+int num=0;
+Random r = new Random(); try
+{
+for(int i=0;i<5;i++)
+{
+num = r.nextInt(100);
+System.out.println("Main Thread Started and generated Number :"+num);
+
+
+Thread t2 = new Thread(new Square(num)); t2.start();
+
+Thread t3 = new Thread(new Cube(num)); t3.start();
+
+Thread.sleep(1000); System.out.println("	");
 }
 }
-}).start();
+catch(InterruptedException e)
+{
+System.out.println(e.getMessage());
+}
+}
+}
+ 
+
+public class MultiThread
+{
+
+
+public static void main(String[] args) {
+
+
+FirstThreadIsRandom ft = new FirstThreadIsRandom(); Thread t1 = new Thread(ft);
+t1.start();
 }
 }
 
