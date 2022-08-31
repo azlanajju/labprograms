@@ -94,7 +94,7 @@ MEMORY			DCD 		0x40000000 	; Address of First 16 bit number
   
   
 </div>
-<button class="texts-btn" onclick="myFunction()" onmouseout="outFunc()">
+<button class="texts-btn" onclick="myFunction8()" onmouseout="outFunc()">
   select texts
   </button> 
   
@@ -112,7 +112,7 @@ This program performs a multiplication of two 16 bit binary numbers and the resu
 </div>
 <div class="prog1">
  
-  <textarea name="" id="" cols="90" rows="10">
+  <textarea id="myInput1" name="" id="" cols="90" rows="10">
   AREA SQUARE,CODE,READONLY
 ENTRY
 	  MOV R0,#1
@@ -137,7 +137,7 @@ RESULT DCD 0
   
 </div>
 
-<button class="texts-btn" onclick="myFunction()" >
+<button class="texts-btn" onclick="myFunction7()" >
   select texts
   </button> 
 <div class="heading">
@@ -153,7 +153,7 @@ This program performs the sum of first 10 integer numbers and the result is stor
 </div>
 <div class="prog1">
  
-  <textarea name="" id="" cols="90" rows="10">
+  <textarea name="" id="myInput2" cols="90" rows="10">
                           AREA Program, CODE, READONLY
  			ENTRY
 
@@ -179,7 +179,7 @@ LOOKUP 	DCD 	0X40000000     ; Address of the memory where offset value is loaded
   
 </div>
 
-<button class="texts-btn" onclick="myFunction()" >
+<button class="texts-btn" onclick="myFunction6()" >
   select texts
   </button> 
 <div class="heading">
@@ -195,7 +195,7 @@ This program performs factorial of a number and the result is stored in memory l
 </div>
 <div class="prog1">
  
-  <textarea name="" id="" cols="90" rows="10">
+  <textarea name="" id="myInput3" cols="90" rows="10">
     AREA prog4,CODE,READONLY
 			ENTRY
 			MOV R0,#6
@@ -224,7 +224,7 @@ RESULT DCD 0
   
 </div>
 
-<button class="texts-btn" onclick="myFunction()" >
+<button class="texts-btn" onclick="myFunction5()" >
   select texts
   </button> 
 <div class="heading">
@@ -246,7 +246,7 @@ This program performs addition of an array of 16 bit numbers and store the 32 bi
 </div>
 <div class="prog1">
  
-  <textarea name="" id="" cols="90" rows="10">
+  <textarea name="" id="myInput4" cols="90" rows="10">
     AREA SQUARE,CODE,READONLY
 ENTRY
 			LDR R0,=TABLE
@@ -280,7 +280,7 @@ RESULT DCD 0
   
 </div>
 
-<button class="texts-btn" onclick="myFunction()" >
+<button class="texts-btn" onclick="myFunction4()" >
   select texts
   </button> 
 <div class="heading">
@@ -299,7 +299,7 @@ This program performs the function to find the square numbers and the result is 
 </div>
 <div class="prog1">
  
-  <textarea name="" id="" cols="90" rows="10">
+  <textarea name="" id="myInput5" cols="90" rows="10">
   AREA SMALLEST,CODE,READONLY
 ENTRY
 START
@@ -342,7 +342,7 @@ RESULT DCD 0
   
 </div>
 
-<button class="texts-btn" onclick="myFunction()" >
+<button class="texts-btn" onclick="myFunction3()" >
   select texts
   </button> 
 <div class="heading">
@@ -361,7 +361,7 @@ Conclusion: this program performs finding the smallest or largest number in an a
   
 <div class="prog1">
  
-  <textarea name="" id="" cols="90" rows="10">
+  <textarea name="" id="myInput6" cols="90" rows="10">
  AREA ASCENDING,CODE,READONLY
 ENTRY
 			MOV R8,#4
@@ -396,7 +396,7 @@ LOOP2 		SUBS R5,R5,#1
   
 </div>
 
-<button class="texts-btn" onclick="myFunction()" >
+<button class="texts-btn" onclick="myFunction2()" >
   select texts
   </button> 
 <div class="heading">
@@ -412,7 +412,7 @@ This program performs the ascending or descending order of the number and the re
 </div>
 <div class="prog1">
  
-  <textarea name="" id="" cols="90" rows="10">
+  <textarea name="" id="myInput7" cols="90" rows="10">
     
 
 AREA ONEZERO, CODE, READONLY
@@ -447,7 +447,7 @@ LOOP1
   
 </div>
 
-<button class="texts-btn" onclick="myFunction()" >
+<button class="texts-btn" onclick="myFunction1()" >
   select texts
   </button> 
 <div class="heading">
@@ -464,7 +464,7 @@ This program counts the number of ones and zeroes in 2 consecutive memory locati
 </div>
 <div class="prog1">
  
-  <textarea name="" id="" cols="90" rows="10">
+  <textarea name="" id="myInput9" cols="90" rows="10">
     
 #include<LPC214x.H>
 int Init_DAC()
@@ -497,7 +497,7 @@ int main(void)
   
 </div>
 
-<button class="texts-btn" onclick="myFunction()" >
+<button class="texts-btn" onclick="myFunction0()" >
   select texts
   </button> 
 <div class="heading">
