@@ -26,3 +26,10 @@ function offf() {
   document.getElementById("overlay").style.display = "none";
 }
 
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  document.execCommand("text-btn")
+ 
+  
+}
