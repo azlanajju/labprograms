@@ -15,6 +15,17 @@ body {
 .book{
   font-size: 20px;
 }
+.texts-btn{
+  margin-top:-50px;
+  right: 25px;
+  color:white;
+ background-color: grey;
+ padding:5px;
+ position: absolute;
+ border:2px solid black;
+ border-radius: 3px;
+}
+
 /*    loader   */
 
 
