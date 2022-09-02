@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Lab programs</title>
+  <title>MCES lab programs</title>
   <script src="https://kit.fontawesome.com/e7d02e2113.js" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,7 +94,11 @@ MEMORY			DCD 		0x40000000 	; Address of First 16 bit number
   
   
 </div>
-<button class="texts-btn" onclick="myFunction8()" onmouseout="outFunc()">
+<button class="texts-btn"  id="demo"
+  
+ onclick="myFunction8()" onmouseout="outFunc()"
+ 
+ >
   select texts
   </button> 
   
@@ -137,7 +141,7 @@ RESULT DCD 0
   
 </div>
 
-<button class="texts-btn" onclick="myFunction7()" >
+<button id="demo1" class="texts-btn" onclick="myFunction7()" >
   select texts
   </button> 
 <div class="heading">
@@ -179,7 +183,7 @@ LOOKUP 	DCD 	0X40000000     ; Address of the memory where offset value is loaded
   
 </div>
 
-<button class="texts-btn" onclick="myFunction6()" >
+<button  id="demo2" class="texts-btn" onclick="myFunction6()" >
   select texts
   </button> 
 <div class="heading">
@@ -224,7 +228,7 @@ RESULT DCD 0
   
 </div>
 
-<button class="texts-btn" onclick="myFunction5()" >
+<button  id="demo3" class="texts-btn" onclick="myFunction5()" >
   select texts
   </button> 
 <div class="heading">
@@ -280,7 +284,7 @@ RESULT DCD 0
   
 </div>
 
-<button class="texts-btn" onclick="myFunction4()" >
+<button  id="demo4" class="texts-btn" onclick="myFunction4()" >
   select texts
   </button> 
 <div class="heading">
@@ -342,7 +346,7 @@ RESULT DCD 0
   
 </div>
 
-<button class="texts-btn" onclick="myFunction3()" >
+<button  id="demo5" class="texts-btn" onclick="myFunction3()" >
   select texts
   </button> 
 <div class="heading">
@@ -396,7 +400,7 @@ LOOP2 		SUBS R5,R5,#1
   
 </div>
 
-<button class="texts-btn" onclick="myFunction2()" >
+<button  id="demo6" class="texts-btn" onclick="myFunction2()" >
   select texts
   </button> 
 <div class="heading">
@@ -447,7 +451,7 @@ LOOP1
   
 </div>
 
-<button class="texts-btn" onclick="myFunction1()" >
+<button  id="demo7" class="texts-btn" onclick="myFunction1()" >
   select texts
   </button> 
 <div class="heading">
@@ -497,7 +501,7 @@ int main(void)
   
 </div>
 
-<button class="texts-btn" onclick="myFunction0()" >
+<button id="demo8" class="texts-btn" onclick="myFunction0()" >
   select texts
   </button> 
 <div class="heading">
