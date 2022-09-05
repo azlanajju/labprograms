@@ -164,20 +164,20 @@ This program performs the sum of first 10 integer numbers and the result is stor
                           AREA Program, CODE, READONLY
  			ENTRY
 
-	 		LDR 	R0,LOOKUP 	            ; load the address of the lookup table
-			LDRB 	R1,[R0]		            ; offset of value to be looked up
- 			MOV		R2,R1	            ; Copy the offset value 
-UP			ADD		R1,R1,#-1			; decrement offset value
-			CMP 	R1,#0				; is offset value is zero
-			BEQ		STORE				; if yes store factorial value
-			MUL		R3,R2,R1	; if not fact= offsetvalue x (offset-1)
-			MOV		R2,R3		; move fact value
-			B		UP	             ; branch to decrement offset value
-STORE		STR		R2,[R0,#4]		; store the fact value
- 			SWI 		&11	             ; Stop
+	 		LDR 	R0,LOOKUP 	           
+			LDRB 	R1,[R0]		           
+ 			MOV		R2,R1	           
+UP			ADD		R1,R1,#-1			
+			CMP 	R1,#0				
+			BEQ		STORE			
+			MUL		R3,R2,R1
+			MOV		R2,R3	
+			B		UP	             
+STORE		STR		R2,[R0,#4]		
+ 			SWI 		&11	             
 			
 
-LOOKUP 	DCD 	0X40000000     ; Address of the memory where offset value is loaded.
+LOOKUP 	DCD 	0X40000000 
 
 			END
 
@@ -205,19 +205,19 @@ This program performs factorial of a number and the result is stored in memory l
   <textarea name="" id="myInput3" cols="90" rows="10">
     AREA prog4,CODE,READONLY
 			ENTRY
-			MOV R0,#6
-			MOV R1,#0
-			LDR R2,=VALUE
+	    MOV R0,#6
+	    MOV R1,#0
+	    LDR R2,=VALUE
 LOOP        LDR R3,[R2],#2
             LDR R4,MASK
-			AND R3,R3,R4
-			ADD R1,R1,R3
-			SUB R0,R0,#1
-			CMP R0,#0
-			BNE LOOP
-			LDR R5,=RESULT
-			STR R1,[R5]
-STOP B STOP
+	    AND R3,R3,R4
+            ADD R1,R1,R3
+            SUB R0,R0,#1
+	    CMP R0,#0
+	    BNE LOOP
+	    LDR R5,=RESULT
+	    STR R1,[R5]
+    STOP B STOP
 MASK DCD 0X0000FFFF
 VALUE DCW 0X1111,0X2222,0X3333,0X4444,0X5555,0X8888
 
@@ -255,20 +255,20 @@ This program performs addition of an array of 16 bit numbers and store the 32 bi
  
   <textarea name="" id="myInput4" cols="90" rows="10">
     AREA SQUARE,CODE,READONLY
-ENTRY
-			LDR R0,=TABLE
-			MOV R1,#7
-			MOV R1,R1,LSL#2
-			ADD R0,R0,R1
-			LDR R2,[R0]
-			LDR R3,=RESULT
-			STR R2,[R3]
-STOP B STOP
+               ENTRY
+	LDR R0,=TABLE
+	MOV R1,#7
+	MOV R1,R1,LSL#2
+	ADD R0,R0,R1
+	LDR R2,[R0]
+	LDR R3,=RESULT
+	STR R2,[R3]
+    STOP B STOP
 TABLE DCD 0X00000000
 	  DCD 0X00000001
 	  DCD 0X00000004
 	  DCD 0X00000009
-      DCD 0X00000016
+          DCD 0X00000016
 	  DCD 0X00000025
 	  DCD 0X00000036
 	  DCD 0X00000049
@@ -310,37 +310,37 @@ This program performs the function to find the square numbers and the result is 
   AREA SMALLEST,CODE,READONLY
 ENTRY
 START
-			MOV R5,#6
-			LDR R1,=VALUE1
-			LDR R2,[R1],#4
+	MOV R5,#6
+	LDR R1,=VALUE1
+	LDR R2,[R1],#4
 LOOP
-            LDR R4,[R1],#4
-			CMP R2,R4
-            BLS LOOP1			
+        LDR R4,[R1],#4
+	CMP R2,R4
+        BLS LOOP1			
 
 
-			MOV R2,R4
+	MOV R2,R4
 			
 LOOP1 
-            SUBS R5,R5,#1
-			CMP R5,#0
-			BNE LOOP
+        SUBS R5,R5,#1
+	CMP R5,#0
+	BNE LOOP
 			
-			LDR R4,=RESULT
-			STR R2,[R4]
+	LDR R4,=RESULT
+	STR R2,[R4]
 			
 STOP B STOP
 
 VALUE1
-			DCD 0X44444444
-			DCD 0X22222222
-			DCD 0X11111111
-			DCD 0X22222222
-			DCD 0XAAAAAAAA
-			DCD 0X88888888
-			DCD 0X99999999
+		DCD 0X44444444
+		DCD 0X22222222
+		DCD 0X11111111
+		DCD 0X22222222
+		DCD 0XAAAAAAAA
+		DCD 0X88888888
+		DCD 0X99999999
 				
-			AREA  DATA2,DATA,READWRITE
+	AREA  DATA2,DATA,READWRITE
 RESULT DCD 0
 	END
 
