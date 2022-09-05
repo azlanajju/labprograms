@@ -127,7 +127,7 @@ body {
 }
 
 .prog1{
-  
+  overflow-x:scroll;
   margin: 20px;
 }
 .prog1 textarea{
