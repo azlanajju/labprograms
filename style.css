@@ -132,7 +132,7 @@ body {
 
 
 .prog1{
-  
+  overflow-x:auto;
   margin: 20px;
 }
 .prog1 textarea{
