@@ -1,7 +1,8 @@
 
+    
   jSuites.notification({
         name: 'WELCOME',
-        
+        message: 'by azlan',
     }); 
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
@@ -32,6 +33,11 @@ function offf() {
 
 function myFunction8() {
   
+  jSuites.notification({
+        name: 'copied',
+        message:'program1'
+        
+    }); 
  document.getElementById("demo").innerHTML = "Copied!";
 
   var copyText = document.getElementById("myInput");
@@ -43,6 +49,12 @@ function myFunction8() {
 
 function myFunction7() {
   
+  jSuites.notification({
+        name: 'copied',
+        message:'program2',
+        
+        
+    }); 
  document.getElementById("demo1").innerHTML = "Copied!";
   var copyText = document.getElementById("myInput1");
  copyText.select(); 
@@ -54,6 +66,11 @@ function myFunction7() {
 
 function myFunction6() {
   
+  jSuites.notification({
+        name: 'copied',
+        message:'program3'
+        
+    }); 
  document.getElementById("demo2").innerHTML = "Copied!";
   var copyText = document.getElementById("myInput2");
   copyText.select();
@@ -66,6 +83,12 @@ function myFunction6() {
 
 function myFunction5() {
   
+  jSuites.notification({
+        name: 'copied',
+        message:'program4'
+        
+    }); 
+  
  document.getElementById("demo3").innerHTML = "Copied!";
   var copyText = document.getElementById("myInput3");
   copyText.select();
@@ -77,6 +100,11 @@ function myFunction5() {
 
 function myFunction4() {
   
+  jSuites.notification({
+        name: 'copied',
+        message:'program5'
+        
+    }); 
  document.getElementById("demo4").innerHTML = "Copied!";
   var copyText = document.getElementById("myInput4");
   copyText.select();
@@ -88,6 +116,11 @@ function myFunction4() {
 
 function myFunction3() {
   
+  jSuites.notification({
+        name: 'copied',
+        message:'program6'
+        
+    }); 
  document.getElementById("demo5").innerHTML = "Copied!";
   var copyText = document.getElementById("myInput5");
   copyText.select();
@@ -99,6 +132,11 @@ function myFunction3() {
 
 function myFunction2() {
   
+  jSuites.notification({
+        name: 'copied',
+        message:'program7'
+        
+    }); 
  document.getElementById("demo6").innerHTML = "Copied!";
   var copyText = document.getElementById("myInput6");
   copyText.select();
@@ -110,6 +148,11 @@ function myFunction2() {
 
 function myFunction1() {
   
+  jSuites.notification({
+        name: 'copied',
+        message:'program8'
+        
+    }); 
  document.getElementById("demo7").innerHTML = "Copied!";
   var copyText = document.getElementById("myInput7");
   copyText.select();
