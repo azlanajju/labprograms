@@ -51,7 +51,7 @@ body {
   left:40%;
   border: 12px solid white;
   border-radius: 50%;
-  border-top: 12px solid black;
+  border-top: 12px solid grey;
   width: 30px;
   height: 30px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
