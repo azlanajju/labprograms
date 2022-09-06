@@ -365,55 +365,23 @@ stf[i].Display(); System.out.println();
 </div>
 <div class="prog1">
  
-  <textarea name="" id="myInput2" cols="90" rows="10">
-    
-package multithread; import java.util.Scanner;
-
-
-public class Multithread { public static int num; public static int state=0;
-
-public static void main(String[] args) { new Thread(new Runnable(){
-@Override
-public void run(){ int i=0;
-System.out.println("Enter n"); Scanner s=new Scanner(System.in); int n=s.nextInt();
-
-while(i<n)
+  <texcustomer1; import java.util.Scanner;
+import java.util.StringTokenizer; /* @author PROF.SAKEENA */ public class Customer1 {
+private String custName; private String dob;
+public Customer1(String custName,String dob)
 {
-num =(int) (Math.random() * 100); System.out.println("\nNumber :"+num); i++;
-state = 1; try
-{
-Thread.sleep(1000);
-}
-catch (InterruptedException e){ System.err.println("error"+e);
-}
-}
-}
-}).start();
 
-new Thread(new Runnable(){
-@Override
-public void run(){ while(true)
-{
-while(state!= 1);
-System.out.println("square :"+(num* num)); state=2;
+this.custName=custName; this.dob=dob;
+}
+public static void main(String[] args) { Scanner scanner =new Scanner(System.in); System.out.println("Enter customername"); String custName=scanner.nextLine();
+System.out.println("enter date(dd/mm/yyyy)"); String dob=scanner.next();
+Customer1 customer=new Customer1(custName,dob); System.out.println("Customer name "+customer.custName); StringTokenizer date=new StringTokenizer (customer.dob,"/");
+System.out.print("customer DOB: " + date.nextToken()+ "," + date.nextToken() + ","
++date.nextToken());
 }
 
 }
-}
-).start();
 
-new Thread(new Runnable(){
-@Override
-public void run(){ while(true)
-{
-while(state!= 2);
-System.out.println("cube :"+(num* num*num)); state=0;
-}
-}
-}).start();
-}
-}
-      
 
   </textarea>
   
