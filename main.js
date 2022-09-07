@@ -232,7 +232,7 @@ function myFunction12() {
     }); 
  document.getElementById("demo12").innerHTML = "Copied!";
 
-  var copyText = document.getElementById("myInput1");
+  var copyText = document.getElementById("myInput13");
   copyText.select(); 
   navigator.clipboard.writeText(copyText.value);
 
