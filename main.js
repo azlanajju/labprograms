@@ -177,7 +177,7 @@ function myFunction9() {
   
   jSuites.notification({
         name: 'copied',
-        message:'program'
+        message:'program9'
         
     }); 
  document.getElementById("demo9").innerHTML = "Copied!";
@@ -193,7 +193,7 @@ function myFunction10() {
   
   jSuites.notification({
         name: 'copied',
-        message:'program'
+        message:'program9'
         
     }); 
  document.getElementById("demo10").innerHTML = "Copied!";
@@ -210,7 +210,7 @@ function myFunction11() {
   
   jSuites.notification({
         name: 'copied',
-        message:'program'
+        message:'program12'
         
     }); 
  document.getElementById("demo11").innerHTML = "Copied!";
@@ -227,7 +227,7 @@ function myFunction12() {
   
   jSuites.notification({
         name: 'copied',
-        message:'program'
+        message:'program13'
         
     }); 
  document.getElementById("demo12").innerHTML = "Copied!";
