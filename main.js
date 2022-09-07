@@ -1,5 +1,5 @@
 
-    
+    alert('copy function isnt working due to some technical error. ');
   jSuites.notification({
         name: 'WELCOME',
         message: '           -by azlan',
@@ -171,7 +171,7 @@ function myFunction0() {
   navigator.clipboard.writeText(copyText.value);
  
   
-}
+} 
 
 function myFunction9() {
   
