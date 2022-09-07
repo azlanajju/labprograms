@@ -2,7 +2,7 @@
     
   jSuites.notification({
         name: 'WELCOME',
-        message: 'by azlan',
+        message: '           -by azlan',
     }); 
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
@@ -170,5 +170,71 @@ function myFunction0() {
   
   navigator.clipboard.writeText(copyText.value);
  
+  
+}
+
+function myFunction9() {
+  
+  jSuites.notification({
+        name: 'copied',
+        message:'program'
+        
+    }); 
+ document.getElementById("demo9").innerHTML = "Copied!";
+
+  var copyText = document.getElementById("myInput10");
+  copyText.select(); 
+  navigator.clipboard.writeText(copyText.value);
+
+  
+}
+
+function myFunction10() {
+  
+  jSuites.notification({
+        name: 'copied',
+        message:'program'
+        
+    }); 
+ document.getElementById("demo10").innerHTML = "Copied!";
+
+  var copyText = document.getElementById("myInput11");
+  copyText.select(); 
+  navigator.clipboard.writeText(copyText.value);
+
+  
+}
+
+
+function myFunction11() {
+  
+  jSuites.notification({
+        name: 'copied',
+        message:'program'
+        
+    }); 
+ document.getElementById("demo11").innerHTML = "Copied!";
+
+  var copyText = document.getElementById("myInput12");
+  copyText.select(); 
+  navigator.clipboard.writeText(copyText.value);
+
+  
+}
+
+
+function myFunction12() {
+  
+  jSuites.notification({
+        name: 'copied',
+        message:'program'
+        
+    }); 
+ document.getElementById("demo12").innerHTML = "Copied!";
+
+  var copyText = document.getElementById("myInput1");
+  copyText.select(); 
+  navigator.clipboard.writeText(copyText.value);
+
   
 }
