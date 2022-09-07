@@ -743,14 +743,14 @@ OUTPUT: Square and Triangular waves
 #include <stdio.h>
 #include "lcd.h"
 
-//////////   Init ADC0  /////////////////
+      
 int Init_ADC()
 {
   // Convert Port pin 0.28 to function as AD0.2
   PINSEL1 = 0X01000000;
 }
 
-//////////   READ ADC0 CH:2  /////////////////
+
 unsigned int Read_ADC()
 {
   unsigned int i=0;
@@ -767,7 +767,7 @@ unsigned int Read_ADC()
 
 }
 
-//////////   DISPLAY ADC VALUE /////////////////
+
 void Display_ADC()
 {
  unsigned int adc_value = 0;
@@ -781,7 +781,7 @@ void Display_ADC()
 		lcd_putstring(buf);
 }
 
-//////////   MAIN /////////////////
+
 int main (void) 
 {
   init_lcd();
@@ -819,15 +819,15 @@ OUTPUT:
  
   <textarea name="" id="myInput13" cols="90" rows="10">
     
-    #include <LPC214x.H>                       /* LPC214x definitions */
+    #include <LPC214x.H>                      
 #define DIG2	           		(1 << 11)
-//#define LED_DATA_MASK           0x007F8000
-////////// digits are created using bit patterns corresponding to the segments ////////////////////
+
+
 unsigned char dig[] = {0x88,0xeb,0x4c,0x49,0x2b,0x19,0x18,0xcb,0x8,0x9,0xa,0x38,0x9c,0x68,0x1c,0x1e};
 
-/****************************************************************************
+
   Function Name : delay()
-********************************************************************************/
+
 void delay(unsigned int count)
 {
   int j=0,i=0;
@@ -837,7 +837,7 @@ void delay(unsigned int count)
     for(i=0;i<120;i++);
   }
 }
-///////////////////////////////// MAIN  ///////////////////////////////////////
+
 int main (void) 
 {
 unsigned char count=0;
