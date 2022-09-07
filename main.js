@@ -32,12 +32,12 @@ function offf() {
 }
 
 function myFunction8() {
-  
+  /*
   jSuites.notification({
         name: 'copied',
         message:'program1'
         
-    }); 
+    }); */
  document.getElementById("demo").innerHTML = "Copied!";
 
   var copyText = document.getElementById("myInput");
