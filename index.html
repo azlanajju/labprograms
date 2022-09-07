@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MCES lab programs</title>
-
+  <title>MCES lab programs</title
+  
 <script src="https://jsuites.net/v4/jsuites.js"></script>   
 <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
   <script src="https://kit.fontawesome.com/e7d02e2113.js" crossorigin="anonymous"></script>
@@ -75,20 +75,24 @@
 <div class="prog1">
   
   <textarea  name="" id="myInput" cols="90" rows="10">
- AREA Program, CODE, READONLY
+ 
+AREA Program, CODE, READONLY
  			ENTRY
 			 
-			LDR 		R0, MEMORY 	
-		 	LDRH 		R1, [R0]		
-			LDRH		R2, [R0,#2]		
-			MUL 		R2, R1, R2 		
-			STRH 		R2, [R0,#4]
-			SWI 		&11 			
- 			
-MEMORY			DCD 		0x40000000 	
+			LDR 		R0, MEMORY 	; load Address of memory
+		 	LDRH 		R1, [R0]		; load First number
+			LDRH		R2, [R0,#2]		; load Second number
+			MUL 		R2, R1, R2 		; R0 = R1 x R0
+			STRH 		R2, [R0,#4] 		; Store the result
+			SWI 		&11 			; all done
 
  			
- 			END
+MEMORY			DCD 		0x40000000 	; Address of First 16 bit number
+
+ 			
+ 			END	
+
+  
   </textarea>
   
   
@@ -160,20 +164,20 @@ This program performs the sum of first 10 integer numbers and the result is stor
                           AREA Program, CODE, READONLY
  			ENTRY
 
-	 		LDR 	R0,LOOKUP 	           
-			LDRB 	R1,[R0]		           
- 			MOV		R2,R1	           
-UP			ADD		R1,R1,#-1			
-			CMP 	R1,#0				
-			BEQ		STORE			
-			MUL		R3,R2,R1
-			MOV		R2,R3	
-			B		UP	             
-STORE		STR		R2,[R0,#4]		
- 			SWI 		&11	             
+	 		LDR 	R0,LOOKUP 	            ; load the address of the lookup table
+			LDRB 	R1,[R0]		            ; offset of value to be looked up
+ 			MOV		R2,R1	            ; Copy the offset value 
+UP			ADD		R1,R1,#-1			; decrement offset value
+			CMP 	R1,#0				; is offset value is zero
+			BEQ		STORE				; if yes store factorial value
+			MUL		R3,R2,R1	; if not fact= offsetvalue x (offset-1)
+			MOV		R2,R3		; move fact value
+			B		UP	             ; branch to decrement offset value
+STORE		STR		R2,[R0,#4]		; store the fact value
+ 			SWI 		&11	             ; Stop
 			
 
-LOOKUP 	DCD 	0X40000000 
+LOOKUP 	DCD 	0X40000000     ; Address of the memory where offset value is loaded.
 
 			END
 
@@ -201,19 +205,19 @@ This program performs factorial of a number and the result is stored in memory l
   <textarea name="" id="myInput3" cols="90" rows="10">
     AREA prog4,CODE,READONLY
 			ENTRY
-	    MOV R0,#6
-	    MOV R1,#0
-	    LDR R2,=VALUE
+			MOV R0,#6
+			MOV R1,#0
+			LDR R2,=VALUE
 LOOP        LDR R3,[R2],#2
             LDR R4,MASK
-	    AND R3,R3,R4
-            ADD R1,R1,R3
-            SUB R0,R0,#1
-	    CMP R0,#0
-	    BNE LOOP
-	    LDR R5,=RESULT
-	    STR R1,[R5]
-    STOP B STOP
+			AND R3,R3,R4
+			ADD R1,R1,R3
+			SUB R0,R0,#1
+			CMP R0,#0
+			BNE LOOP
+			LDR R5,=RESULT
+			STR R1,[R5]
+STOP B STOP
 MASK DCD 0X0000FFFF
 VALUE DCW 0X1111,0X2222,0X3333,0X4444,0X5555,0X8888
 
@@ -251,20 +255,20 @@ This program performs addition of an array of 16 bit numbers and store the 32 bi
  
   <textarea name="" id="myInput4" cols="90" rows="10">
     AREA SQUARE,CODE,READONLY
-               ENTRY
-	LDR R0,=TABLE
-	MOV R1,#7
-	MOV R1,R1,LSL#2
-	ADD R0,R0,R1
-	LDR R2,[R0]
-	LDR R3,=RESULT
-	STR R2,[R3]
-    STOP B STOP
+ENTRY
+			LDR R0,=TABLE
+			MOV R1,#7
+			MOV R1,R1,LSL#2
+			ADD R0,R0,R1
+			LDR R2,[R0]
+			LDR R3,=RESULT
+			STR R2,[R3]
+STOP B STOP
 TABLE DCD 0X00000000
 	  DCD 0X00000001
 	  DCD 0X00000004
 	  DCD 0X00000009
-          DCD 0X00000016
+      DCD 0X00000016
 	  DCD 0X00000025
 	  DCD 0X00000036
 	  DCD 0X00000049
@@ -306,37 +310,37 @@ This program performs the function to find the square numbers and the result is 
   AREA SMALLEST,CODE,READONLY
 ENTRY
 START
-	MOV R5,#6
-	LDR R1,=VALUE1
-	LDR R2,[R1],#4
+			MOV R5,#6
+			LDR R1,=VALUE1
+			LDR R2,[R1],#4
 LOOP
-        LDR R4,[R1],#4
-	CMP R2,R4
-        BLS LOOP1			
+            LDR R4,[R1],#4
+			CMP R2,R4
+            BLS LOOP1			
 
 
-	MOV R2,R4
+			MOV R2,R4
 			
 LOOP1 
-        SUBS R5,R5,#1
-	CMP R5,#0
-	BNE LOOP
+            SUBS R5,R5,#1
+			CMP R5,#0
+			BNE LOOP
 			
-	LDR R4,=RESULT
-	STR R2,[R4]
+			LDR R4,=RESULT
+			STR R2,[R4]
 			
 STOP B STOP
 
 VALUE1
-		DCD 0X44444444
-		DCD 0X22222222
-		DCD 0X11111111
-		DCD 0X22222222
-		DCD 0XAAAAAAAA
-		DCD 0X88888888
-		DCD 0X99999999
+			DCD 0X44444444
+			DCD 0X22222222
+			DCD 0X11111111
+			DCD 0X22222222
+			DCD 0XAAAAAAAA
+			DCD 0X88888888
+			DCD 0X99999999
 				
-	AREA  DATA2,DATA,READWRITE
+			AREA  DATA2,DATA,READWRITE
 RESULT DCD 0
 	END
 
@@ -453,6 +457,7 @@ LOOP1
 <button  id="demo7" class="texts-btn" onclick="myFunction1()" >
   select texts
   </button> 
+  
 <div class="heading">
   
 
@@ -461,14 +466,227 @@ This program counts the number of ones and zeroes in 2 consecutive memory locati
 </div>
 <hr>
 <br>
+  <!--     9   -->
+  <div class="heading">
+9. Hello world using UART
+</div>
+<div class="prog1">
+ 
+  <textarea name="" id="myInput11" cols="90" rows="10">
 
+#include<lpc214x.h>
+void initclock(void);
+void inituart0(void);
+void U0write(char data);
+void send_string(char* stringptr);
+char string[]=" hello world \n\r\n";
+unsigned int delay;
+int main(void)
+{
+	initclock();
+	inituart0();
+	{
+	 send_string(string);
+   for(delay=0;delay<500000;delay++);
+	}
+}
+void inituart0(void)
+{
+	PINSEL0=0X5;
+	U0LCR=0X83;
+	U0DLL=110;
+	U0DLM=1;
+	U0FDR=0XF1;
+	U0LCR &=0X0F;
+}
+void U0write(char data)
+{
+	while(!(U0LSR &(1<5)));
+	U0THR=data;
+}
+void initclock(void)
+{
+	PLL0CON=0X01;
+	PLL0CFG=0X24;
+	PLL0FEED=0XAA;
+	PLL0FEED=0X55;
+	while(!(PLL0STAT & 0X00000040));
+	PLL0CON=0X03;
+	PLL0FEED=0XAA;
+	PLL0FEED=0X55;
+	VPBDIV=0X01;
+}
+void send_string(char*stringptr)
+{
+	while(*stringptr!=0x00)
+	{
+		U0write(*stringptr);
+		stringptr++;
+	}
+}
+
+
+#include <LPC214x.h>
+char *msg = "hello world  ";
+
+int main()
+{
+    PINSEL0 = 0X5;
+    U0LCR = 0X83;
+    U0DLM = 0X00;
+    U0DLL = 0X61;
+    U0LCR = 0X03;
+    while (*msg != 0X00)
+    {
+        while (!(U0LSR & 0X20))
+            ;
+        U0THR = *msg;
+        msg++;
+    }
+}
+
+
+
+
+
+
+
+  </textarea>
+  
+  
+</div>
+
+<button  id="demo10" class="texts-btn" onclick="myFunction10()" >
+  select texts
+  </button> 
 <div class="heading">
-  Interface  a DAC  and generate triangular wave form
+  
+
+Conclusion:
+
+</div>
+<hr>
+<br>
+  <!--    10    -->
+  <div class="heading">
+10.  Stepper motor clockwise and anti clockwise
+</div>
+<div class="prog1">
+ 
+  <textarea name="" id="myInput10" cols="90" rows="10">
+
+#include<LPC214x.H>
+#define CLK    0x00010000
+#define ACLK   0x00020000
+void delay(unsigned int count)
+{
+	int j=0,i=0;
+	for(j=0;j<count;j++)
+	{
+		for(i=0;i<500;i++);
+	}
+}
+int main(void)
+{
+	unsigned char run=1;
+	IO1DIR=0x0F000000;
+	PINSEL2=0x0;
+	{
+		while(1)
+		{
+			if(!(IO1PIN & CLK))
+				run=1;
+			if(!(IO1PIN & ACLK))
+				run=0;
+			if(run==1)
+			{
+				IO1PIN=0x01000000;
+				delay(100);
+				IO1PIN=0x02000000;
+				delay(100);
+				IO1PIN=0x04000000;
+				delay(100);
+				IO1PIN=0x08000000;
+				delay(100);
+			}
+			else
+				{
+					IO1PIN=0x08000000;
+				delay(100);
+				IO1PIN=0x04000000;
+				delay(100);
+				IO1PIN=0x02000000;
+				delay(100);
+				IO1PIN=0x01000000;
+				delay(100);
+				}
+			}
+		}
+	}
+  </textarea>
+  
+  
+</div>
+
+<button  id="demo9" class="texts-btn" onclick="myFunction9()" >
+  select texts
+  </button> 
+<div class="heading">
+  
+
+Conclusion: 
+
+</div>
+<hr>
+<br>
+
+  
+  
+    <!--     11   -->
+<div class="heading">
+  11. Interface  a DAC  and generate triangular wave form
 </div>
 <div class="prog1">
  
   <textarea name="" id="myInput9" cols="90" rows="10">
     
+    
+      <!--     11a   -->
+      
+      #include<LPC214x.H>
+int Init_DAC()
+{
+	PINSEL1=0x000800000;
+	DACR = 0;
+}
+int Write_DAC(unsigned int dacval)
+{
+	DACR = dacval<<6;
+}
+
+void delay(unsigned int count )
+{
+	int j=0,i=0;
+	for(j=0;j<count;j++)
+	{
+		for(i=0;i<120;i++);
+	}
+}
+  int main(void)
+  {
+	   Init_DAC();
+	      while(1)
+	       {
+	       	Write_DAC(00);
+					delay(100);
+					Write_DAC(1023);
+					delay(100);
+				 }
+	 }
+      
+        <!--   11b  -->
+	  
+	  
 #include<LPC214x.H>
 int Init_DAC()
 {
@@ -493,6 +711,7 @@ int main(void)
 		Write_DAC(i);
 	}
 }
+  
       
 
   </textarea>
@@ -505,10 +724,160 @@ int main(void)
   </button> 
 <div class="heading">
   
-OUTPUT: triangular waves
+OUTPUT: Square and Triangular waves
 
 </div>
 <hr>
+<br>
+  <!--    12    -->
+  <div class="heading">
+  12. ADC, Analogue to digital convertor program
+</div>
+<div class="prog1">
+ 
+  <textarea name="" id="myInput12" cols="90" rows="10">
+    
+   #include <LPC214x.H>                       /* LPC214x definitions */
+#include <stdio.h>
+#include "lcd.h"
+
+//////////   Init ADC0  /////////////////
+int Init_ADC()
+{
+  // Convert Port pin 0.28 to function as AD0.2
+  PINSEL1 = 0X01000000;
+}
+
+//////////   READ ADC0 CH:2  /////////////////
+unsigned int Read_ADC()
+{
+  unsigned int i=0;
+
+		AD0CR = 0x00200D02;  //0x00200D04;
+    AD0CR |= 0x01000000; // Start A/D Conversion
+    
+      do
+      {
+        i = AD0GDR; // Read A/D Data Register
+      } while ((i & 0x80000000) == 0); // Wait for end of A/D Conversion
+    
+	return (i >> 6) & 0x03FF; // bit 6:15 is 10 bit AD value
+
+}
+
+//////////   DISPLAY ADC VALUE /////////////////
+void Display_ADC()
+{
+ unsigned int adc_value = 0;
+ char buf[4] = {4};
+ float voltage = 0.0;
+
+  	adc_value = Read_ADC();	
+  	sprintf((char *)buf, "%3d", adc_value);
+  	lcd_putstring16(0,"ADC VAL = 000   ");
+  	lcd_gotoxy(0,10);
+		lcd_putstring(buf);
+}
+
+//////////   MAIN /////////////////
+int main (void) 
+{
+  init_lcd();
+  Init_ADC();
+  while(1)
+  {
+   	Display_ADC();
+  	delay(50000);
+  }
+}
+   
+
+  </textarea>
+  
+  
+</div>
+
+<button id="demo11" class="texts-btn" onclick="myFunction11()" >
+  select texts
+  </button> 
+<div class="heading">
+  
+OUTPUT: 
+
+</div>
+<hr>
+<br>
+
+  <!--   13     -->
+<div class="heading">
+  13. display 1 to F in a 7 segment display
+</div>
+
+<div class="prog1">
+ 
+  <textarea name="" id="myInput13" cols="90" rows="10">
+    
+    #include <LPC214x.H>                       /* LPC214x definitions */
+#define DIG2	           		(1 << 11)
+//#define LED_DATA_MASK           0x007F8000
+////////// digits are created using bit patterns corresponding to the segments ////////////////////
+unsigned char dig[] = {0x88,0xeb,0x4c,0x49,0x2b,0x19,0x18,0xcb,0x8,0x9,0xa,0x38,0x9c,0x68,0x1c,0x1e};
+
+/****************************************************************************
+  Function Name : delay()
+********************************************************************************/
+void delay(unsigned int count)
+{
+  int j=0,i=0;
+
+  for(j=0;j<count;j++)
+  {
+    for(i=0;i<120;i++);
+  }
+}
+///////////////////////////////// MAIN  ///////////////////////////////////////
+int main (void) 
+{
+unsigned char count=0;
+unsigned short j=0;
+unsigned short i=0;
+unsigned char data ;
+  IO0DIR |= (DIG2 );	//Set Digit control lines as Outputs
+  IO0CLR = ( DIG2 );	//Clear Digit control lines
+  while(1)
+ {
+		count++;
+		if(count ==16) count = 0;
+
+		for (i=0; i < 800; i++)	//change to inc/dec speed of count
+		 {
+		  IO0CLR = 0x007F8000;
+			IO0SET = (dig[count] << 15);
+			IO0DIR |= 0x007F8000; 
+			
+			IO0SET = DIG2;
+			for (j=0;j<2000;j++);	//change to inc/dec brightness of display
+			IO0CLR = DIG2;
+		 }		
+  }
+}
+
+  </textarea>
+  
+  
+</div>
+
+<button id="demo12" class="texts-btn" onclick="myFunction12()" >
+  select texts
+  </button> 
+<div class="heading">
+  
+OUTPUT: Square and Triangular waves
+
+</div>
+<hr>
+<br>
+  <!--    if 14    -->
 
 </body>
     
