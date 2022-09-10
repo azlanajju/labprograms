@@ -493,32 +493,31 @@ This program performs the ascending or descending order of the number and the re
   <textarea name="" id="myInput7" cols="90" rows="10">
     
 
-AREA ONEZERO, CODE, READONLY
-
-                ENTRY
-
-   START
-               MOV R2, #0
-               MOV R3, #0
-               MOV R7, #2
-               LDR   R6, =VALUE
-LOOP     MOV R1, #32
-               LDR R0, [R6], #4
-LOOP0  MOV5  R0, R0 , LDR, #1
-              BHI ONES
+        AREA ONEZERO, CODE, READONLY
+START
+		MOV R2, #0
+		MOV R3, #0
+        MOV R7, #2
+		LDR   R6, =VALUE
+LOOP    MOV R1, #32
+		LDR R0, [R6], #4
+LOOP0	MOVS  R0, R0, ROR #1
+		BHI ONES
 ZEROES  
-               ADD R3, R3, #1
-               B LOOP1
+        ADD R3, R3, #1
+        B LOOP1
 ONES     
-               AND R2, R2, #1
+        AND R2, R2, #1
 LOOP1
-               SUBS  R7, R7, #1
-               CMP R7, #0
-               BNE  LOOP
-     STOP B STOP
-          VALUE DCD 0X11111111
+        SUBS  R7, R7, #1
+        CMP R7, #0
+        BNE  LOOP
+STOP B STOP
+VALUE DCD 0X11111111
                 END
               
+
+  
 
   </textarea>
   
