@@ -184,6 +184,23 @@ STORE	STR	R2,[R0,#4]
 LOOKUP 	DCD 	0X40000000     
 
 		END
+	  --------short program------
+	  
+	  
+	  		AREA PROG3,CODE,READONLY
+START
+		MOV R1,#5
+		MOV R0,R1
+LOOP    SUBS R0,#1
+		CMP R0,#0
+		BEQ STOP
+		MUL R3,R0,R1
+		MOV R1,R3
+		CMP R0,#0
+		BNE LOOP
+STOP B STOP		
+		
+		
 
   </textarea>
   
