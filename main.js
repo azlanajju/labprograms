@@ -1,7 +1,7 @@
 
   jSuites.notification({
-        name: 'Remember, god sees!',
-        message: 'All the Best💖',
+        name: 'WELCOME!',
+        message: '-Azlan',
     }); 
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
