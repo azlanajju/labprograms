@@ -165,6 +165,7 @@ color: rgba(0,0,0,0.9);
 
   /* footer section */
 .footer-clean {
+      width:100%;
   background-color: grey;
   bottom: 0;
   position: relative;
