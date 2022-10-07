@@ -165,7 +165,7 @@ color: rgba(0,0,0,0.9);
 
   /* footer section */
 .footer-clean {
-  
+  background-color: grey;
   bottom: 0;
   position: relative;
   padding:0px 0;
@@ -188,7 +188,7 @@ color: rgba(0,0,0,0.9);
   border-radius:50%;
  
   margin-left:10px;
- background-color:grey;
+
   color: white;
   padding: 5px;
   
