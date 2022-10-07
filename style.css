@@ -40,9 +40,9 @@ body{
 }
 
 .navbar.sticky{
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.0);
   padding: 10px 0;
-  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.0);
 }
 .navbar .content{
   display: flex;
@@ -131,15 +131,17 @@ body.disabled{
   }
 /* content section */
 .heading{
+  
     color:black;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 60px;
   font-size: 40px;
   background-color:rgba(0,0,0,0.05);
   width: 100%;
 }
 .sems{
-   height: 100vh;
+ 
+   height: 65vh;
   font-weight:500 ;
     font-size: 25px;
     margin-top: 100px;
@@ -148,8 +150,16 @@ text-align: center;
  list-style: none;
  
 }
+.sems li{
+  
+  margin:10px;
+}
 .sems li a{
-    cursor: pointe cfr;
+ 
+  width: 100%;
+  padding: 5px 125px;
+  
+    cursor: pointer;
 text-decoration: none;
 color: rgba(0,0,0,0.9);
 }
@@ -182,7 +192,7 @@ color: rgba(0,0,0,0.9);
 
 
 .footer-clean .item.social a {
-  font-size:20px;
+  font-size:30px;
   
   
   display:inline-block;
